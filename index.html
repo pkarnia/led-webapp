@@ -6,11 +6,11 @@
 
 <meta charset="UTF-8">
 <title>Columbian Models</title>
-	<script type="text/javascript" src="jquery-2.0.1.min.js"></script>
-	<script type="text/javascript" src="jquery-ui.js"></script>
-	<link rel="stylesheet" type="text/css" href="jquery-ui.css">
-	<script src="jquery.ui.touch-punch.min.js"></script>
-	<link href="ColumbianLED.css" rel="stylesheet">
+	<script type="text/javascript" src="js/jquery-2.0.1.min.js"></script>
+	<script type="text/javascript" src="js/jquery-ui.js"></script>
+	<link rel="stylesheet" type="text/css" href="css/jquery-ui.css">
+	<script src="js/jquery.ui.touch-punch.min.js"></script>
+	<link type="text/css" href="css/ColumbianLED.css" rel="stylesheet">
 
 </head>
 
@@ -56,7 +56,7 @@
     <option value="">--Select a Saved Redis State--</option>
     <?php
 
-    require_once 'functions.php';
+    require_once 'php/functions.php';
 
     $redis = redisConnection();
     
@@ -75,7 +75,7 @@ $("document").ready(function(){
 function updatePwr(){
 	$.ajax({
   	type: 'POST',
-  	url: 'levels.php',
+  	url: 'php/levels.php',
   	data: {area:$("#area").val(),board:$("#board").val(),led:$("#led").val(),level:$("#slide1").slider("value")},
 	});
 };
@@ -85,7 +85,7 @@ $(document).ready(function(){
   $(".all").click(function(){
     $.ajax({
     type: 'POST',
-    url: 'all.php',
+    url: 'php/all.php',
     data: {state:$(this).attr('value')},
     });
   });
@@ -96,7 +96,7 @@ $(document).ready(function(){
   $(".area").click(function(){
     $.ajax({
     type: 'POST',
-    url: 'area.php',
+    url: 'php/area.php',
     data: {area:$("#area").val()},
     });
   });
@@ -107,7 +107,7 @@ $(document).ready(function(){
   $(".load").click(function(){
     $.ajax({
     type: 'POST',
-    url: 'load.php',
+    url: 'php/load.php',
     data: {redisState:$("#states").val()},
     });
   });
@@ -118,7 +118,7 @@ $(document).ready(function(){
   $(".led").click(function(){
     $.ajax({
     type: 'POST',
-    url: 'led.php',
+    url: 'php/led.php',
     data: {board:$("#board").val(),led:$("#led").val(),level:$("#slide1").slider("value")},
     });
   });

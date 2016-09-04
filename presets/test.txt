@@ -1,8 +1,0 @@
-,,52
-,,22
-,,98
-allOff
-allOn
-allOff
-!Area
-!ten,one
