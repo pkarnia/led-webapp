@@ -76,8 +76,17 @@ Colors Listed Above */
 .text2 {
   font-size: .75em;
 }
-
-
+.nav {
+  font-size: .75em;
+}
+.button-array {
+  min-width: 15%;
+  margin:auto;
+  padding:none;
+}
+a {
+  color:white;
+}
 body {
   background: #ccc;
   font-size: 16pt;
@@ -147,6 +156,9 @@ h3 {
   width: 100%;
   margin: 5px;
 }
+.nav {
+  width: 100%;
+}
 body {
   font-size: 3vh;
 }
@@ -163,6 +175,10 @@ footer {
   width: 40%;
   margin: 5px;
 }
+.nav {
+  width: 30%;
+}
+
 body {
   font-size: 4vh;
 }
