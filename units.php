@@ -22,6 +22,15 @@
   <div class="flex-section flex-2 nav"><a href="admin.php">Admin Tools</a></div>
 </span>
 
+<div class="flex-container"style="background:none">
+<?php
+  foreach(array(101,102,103,104,105,106,201,202,203,204,205,206,301,302,303,401,402,403,"Penthouse") as $value)
+  {
+    echo "<div class=\"flex-section flex-2 button-array\" button-array\"><button class=\"button\" value=\"".$value."\">Unit ".$value."</button></div>\n"; 
+  }
+
+?>
+</div>
 
 </body>
 

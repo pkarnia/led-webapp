@@ -98,12 +98,12 @@
 
 <div class="flex-container">
   <div class="flex-section flex-1">
-    <h3>Save Redis State</h3>
-    <input class="text1" type="text" id="save" placeholder="File Name">
-    <button class="button save">Save</button>
+    <h3>Create New Redis State</h3>
+    <input class="text1" type="text" id="create" placeholder="File Name">
+    <button class="button create">Create</button>
   </div>
   <div class="flex-section flex-1">
-    <h3>Load Redis State</h3>
+    <h3>Edit / Load Redis State</h3>
     <select id="states" style="width:100%">
     <?php
 
@@ -163,6 +163,18 @@ $(document).ready(function(){
   });
 });
 </script>
+<script type="text/javascript">
+$(document).ready(function(){
+  $(".create").click(function(){
+    $.ajax({
+    type: 'POST',
+    url: 'php/create.php',
+    data: {hash:$("#create").val()},
+    });
+  });
+});
+</script>
+
 <script type="text/javascript">
 $(document).ready(function(){
   $(".load").click(function(){

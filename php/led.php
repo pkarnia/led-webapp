@@ -2,9 +2,6 @@
 require_once 'functions.php';
 
 $redis = redisConnection();
-global $pubData;
-global $numBoards;
-global $curstate;
 
 $level = $_POST[level];
 $board = $_POST[board];
@@ -41,11 +38,7 @@ else if($board != "" && $led != "")
     $temp = $redis->HGET($curstate, sprintf($format, $channel));
     if($temp > 0)
     {
-      $temp = 0;
-    }
-    else
-    {
-      $temp = $level;
+      $level = 0;
     }
     $redis->HSET($curstate, sprintf($format, $channel), $level);
     $format = '%s:%s';
