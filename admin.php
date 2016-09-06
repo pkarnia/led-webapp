@@ -5,6 +5,8 @@
 <head>
 
 <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0,shrink-to-fit=no" />
+
 <title>Columbian Models</title>
 	<script type="text/javascript" src="js/jquery-2.0.1.min.js"></script>
 	<script type="text/javascript" src="js/jquery-ui.js"></script>
@@ -109,10 +111,10 @@
     </select>
     <button class="button load">Load</button>
   </div>
+</div>
   <div class="flex-section flex-1">
     <button class="button shutdown">Shutdown Model</button>
   </div>
-</div>
 
 <footer>Copyright 2016 © Columbian Models</footer>
 
