@@ -1,10 +1,10 @@
 <?php
 
-require_once "predis/autoload.php";
+require_once '../predis/autoload.php';
 Predis\Autoloader::register();
 
-$pubData = "";
-$numBoards = 1;
+$GLOBALS[pubData] = "";
+$GLOBALS[numBoards] = 1;
 
 function redisConnection() {
   try {
@@ -16,11 +16,11 @@ function redisConnection() {
 	
     if(is_string($temp = $redis->GET("curstate")))
     {
-      $curstate = $temp;
+      $GLOBALS[curstate] = $temp;
     }
     else
     {
-      $curstate = "state/default";
+      $GLOBALS[curstate] = "state/default";
       error_log("No Saved State Found");
     }
     echo "Successfully connected to Redis";

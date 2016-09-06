@@ -178,7 +178,10 @@ footer {
 .nav {
   width: 30%;
 }
-
+img {
+  max-width:150vh;
+  max-height:84.375vh;
+}
 body {
   font-size: 4vh;
 }

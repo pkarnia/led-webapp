@@ -3,8 +3,6 @@
 require_once 'functions.php';
 
 $redis = redisConnection();
-global $pubData;
-global $numBoards;
 
 if($_POST[state] == "allOn")
     $level = 100;
