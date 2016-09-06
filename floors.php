@@ -15,20 +15,19 @@
 </head>
 
 <body>
-
 <span class="flex-container">
   <div class="flex-section flex-2 nav"><a href="index.php">Home</a></div>
   <div class="flex-section flex-2 nav"><a href="units.php">Units</a></div>
   <div class="flex-section flex-2 nav"><a href="admin.php">Admin Tools</a></div>
 </span>
-<div class="flex-container"style="background:none">
+<div class="flex-container"style="background:none; max-width:100%;">
 <?php
   for($i = 1; $i < 21; $i++)
   {
-    echo "<div class=\"flex-section flex-2 button-array\" button-array\"><button class=\"button\" value=\"".$i."\">Floor ".$i."</button></div>\n"; 
+    echo "<div class=\"flex-section flex-2 button-array\"><button class=\"button\" value=\"".$i."\">Floor ".$i."</button></div>\n"; 
   }
-
 ?>
+
 </div>
 </body>
 

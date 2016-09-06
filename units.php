@@ -15,14 +15,13 @@
 </head>
 
 <body>
-
-<span class="flex-container">
+<div class="flex-container">
   <div class="flex-section flex-2 nav"><a href="index.php">Home</a></div>
   <div class="flex-section flex-2 nav"><a href="floors.php">Floors</a></div>
   <div class="flex-section flex-2 nav"><a href="admin.php">Admin Tools</a></div>
-</span>
+</div>
 
-<div class="flex-container"style="background:none">
+<div class="flex-section"style="background:none">
 <?php
   foreach(array(101,102,103,104,105,106,201,202,203,204,205,206,301,302,303,401,402,403,"Penthouse") as $value)
   {
@@ -31,7 +30,6 @@
 
 ?>
 </div>
-
 </body>
 
 </html>

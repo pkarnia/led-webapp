@@ -105,25 +105,12 @@
   <div class="flex-section flex-1">
     <h3>Edit / Load Redis State</h3>
     <select id="states" style="width:100%">
-    <?php
-
-    $redis = redisConnection();
-
-    $echoData = "<option value=\"".$curstate."\">".substr($curstate, 6)."</option>";
-    echo $echoData;
-    foreach($redis->KEYS("state/*") as $value)
-    {
-      if($curstate != $value)
-      {
-        $echoData = "<option value=\"".$value."\">".substr($value, 6)."</option>";
-        echo $echoData;
-
-      }
-    }
-
-    ?>
+    
     </select>
     <button class="button load">Load</button>
+  </div>
+  <div class="flex-section flex-1">
+    <button class="button shutdown">Shutdown Model</button>
   </div>
 </div>
 
@@ -131,6 +118,7 @@
 
 <script type="text/javascript">
 $("document").ready(function(){
+	updateStates();
 	$( "#slide1" ).slider({ min: 1, max: 100, animate: "slow", range: "min", value:[100], change: function( event, ui ) {updatePwr()} });
 });
 function updatePwr(){
@@ -139,10 +127,19 @@ function updatePwr(){
   	url: 'php/levels.php',
   	data: {area:$("#areas").val(),board:$("#board").val(),led:$("#led").val(),level:$("#slide1").slider("value")},
 	});
+  };
+function updateStates(){
+	$.getJSON("php/states.php", function(result) {
+	var optionsValues = '<select>';
+	$.each(result.states, function(num, item) {
+    		optionsValues += '<option value="' + item.statename + '">' + item.dispname + '</option>';
+        });
+    	optionsValues += '</select>';
+	var options = $('#states');
+    	options.html(optionsValues);
+        $('#states option[value="'+result.curstate+'"]').attr('selected','selected');
+  });
 };
-	</script>
-<script type="text/javascript">
-$(document).ready(function(){
   $(".all").click(function(){
     $.ajax({
     type: 'POST',
@@ -150,10 +147,6 @@ $(document).ready(function(){
     data: {state:$(this).attr('value')},
     });
   });
-});
-</script>
-<script type="text/javascript">
-$(document).ready(function(){
   $(".area").click(function(){
     $.ajax({
     type: 'POST',
@@ -161,22 +154,14 @@ $(document).ready(function(){
     data: {area:$("#areas").val()},
     });
   });
-});
-</script>
-<script type="text/javascript">
-$(document).ready(function(){
   $(".create").click(function(){
     $.ajax({
     type: 'POST',
     url: 'php/create.php',
     data: {hash:$("#create").val()},
     });
+    updateStates();
   });
-});
-</script>
-
-<script type="text/javascript">
-$(document).ready(function(){
   $(".load").click(function(){
     $.ajax({
     type: 'POST',
@@ -184,10 +169,6 @@ $(document).ready(function(){
     data: {redisState:$("#states").val()},
     });
   });
-});
-</script>
-<script type="text/javascript">
-$(document).ready(function(){
   $(".led").click(function(){
     $.ajax({
     type: 'POST',
@@ -195,7 +176,13 @@ $(document).ready(function(){
     data: {board:$("#board").val(),led:$("#led").val(),level:$("#slide1").slider("value")},
     });
   });
-});
+  $(".shutdown").click(function(){
+    $.ajax({
+    type: 'POST',
+    url: 'php/shutdown.php',
+    data: {shutdown:"yes"},
+    });
+  });
 </script>
 
 </body>
