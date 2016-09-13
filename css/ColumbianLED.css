@@ -185,13 +185,9 @@ img {
 body {
   font-size: 4vh;
 }
-.flex-container {
-  flex-flow: row wrap;
-}
 .flex-section {
-  -webkit-flex: 1;
-  flex: 1;
-  width: 25%;
+
 }
+
 }
 
